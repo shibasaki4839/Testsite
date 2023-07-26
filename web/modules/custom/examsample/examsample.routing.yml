@@ -1,0 +1,30 @@
+examsample.form1:
+  path: '/examsample/form1'
+  defaults:
+    _form: '\Drupal\examsample\Form\ExamSampleForm'
+    _title: 'ExamSampleフォーム'
+  requirements:
+    _permission: 'access content'
+examsample.admin_settings:
+  path: '/admin/config/examsample'
+  defaults: 
+    _form: '\Drupal\examsample\Form\ExamConfigForm'
+    _title: 'Exam Settings'
+  requirements:
+    _permission: 'administer site configuration'
+examsample.controller:
+  path: '/exam/page'
+  defaults:
+    _controller: '\Drupal\examsample\Controller\ExamController::index'
+    _title: 'Exam Page'
+  requirements:
+    _permission: 'access content'
+examsample.controller2:
+  path: '/exam/page2'
+  defaults:
+    _controller: '\Drupal\examsample\Controller\ExamController2::index'
+    _title: 'Exam Page2'
+  requirements:
+    _permission: 'access content'
+
+  

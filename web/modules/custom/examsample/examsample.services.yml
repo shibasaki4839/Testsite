@@ -1,0 +1,14 @@
+services:
+  examsample.drink:
+    class: '\Drupal\examsample\Service\ExamService'
+  exansample.config_subscriber:
+    class: '\Drupal\examsample\EventSubscriber\ConfigSubscriber'
+    tags:
+      - {name: 'event_subscriber'}
+  examsample.subscriver:
+    class: '\Drupal\examsample\EventSubscriber\ExamSubscriber'
+    tags:
+      - {name: 'event_subscriber'}
+  plugin.manager.exam:
+    class: '\Drupal\examsample\ExamPluginManager'
+    parent: default_plugin_manager

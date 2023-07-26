@@ -1,0 +1,26 @@
+name: tesutosaito
+recipe: drupal9
+config:
+  webroot: web
+  # VS CodeでXdebugを使用する設定
+  xdebug: true
+  config:
+    php: .vscode/php.ini
+# メールサーバーをサービスとして追加
+services:
+  appserver:
+    webroot: web
+    xdebug: true
+    ssl: true
+    sslExpose: true
+  mailhog:
+    type: mailhog
+    hogfrom:
+     - appserver
+  phpmyadmin:
+    type: phpmyadmin
+tooling:
+  phpunit:
+    service: appserver
+    cmd:
+      - appserver: php /app/vendor/bin/phpunit -c /app/phpunit.xml

@@ -1,0 +1,113 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\user\UserInterface;
+use Drupal\examsample\Event\ExamFirstEvent;
+use Drupal\examsample\Event\ExamEvent;
+
+/**
+ * Implements hook_form_alter()
+ */
+function examsample_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
+
+}
+/**
+ * Implements hook_theme().
+ */
+function examsample_theme($existing, $type, $theme, $path)
+{
+  return [
+    // Name of the theme hook. This is used in the controller to trigger the hook.
+    // 'examsample'=>とするとすべてのフォーム、コントローラーに適用されてしまうので注意
+    'examsample_form' => [
+      'render element' => 'form',
+    ],
+    'examsample_controller' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'examcontroller',
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      //'path' => $path . '/templates',
+      // Optionally define variables that will be passed to the Twig
+      // template and set default values for them.
+      'variables' => [
+        'variable1' => 'Yet another default text.',
+        'variable2' => 0,
+        'variable3' => [0, 0, 0],
+      ],
+    ],
+    'examsample_controller2' => [
+      'render element' => 'children',
+      // If no template name is defined here,
+      // it defaults to the name of the theme hook,
+      // ie. module-name-theme-hook.html.twig
+      'template' => 'examcontroller2',
+      // Optionally define path to Twig template files.
+      // Defaults to the module's ./templates/ directory.
+      //'path' => $path . '/templates',
+      // Optionally define variables that will be passed to the Twig
+      // template and set default values for them.
+      'variables' => [
+        'variable1' => 'Yet another default text.',
+        'variable2' => 0,
+        'variable3' => [0, 0, 0],
+      ],
+    ],
+  ];
+}
+function examsample_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode)
+{
+  \Drupal::moduleHandler()->invokeAll('examsample_hello_world');
+}
+
+function examsample_examsample_hello_world()
+{
+  \Drupal::messenger()->addMessage('Hello world!');
+}
+
+/**
+ * Implements hook_user_login();
+ */
+function examsample_user_login(UserInterface $account)
+{
+  $event = new ExamFirstEvent($account);
+  $event_dispatcher = \Drupal::service('event_dispatcher');
+  $event_dispatcher->dispatch($event, ExamEvent::FIRST_EVNET);
+}
+
+/**
+ * Implements hook_cron();
+ */
+function examsample_cron()
+{
+  \Drupal::messenger()->addStatus(theme_get_setting('foo_example'));
+
+  $type = \Drupal::service('plugin.manager.exam');
+
+  //利用可能なプラグインの一覧
+  $plugin_definitions = $type->getDefinitions();
+
+  //最初の1個目を持ってくる
+  //$plugin_definition = reset($plugin_definitions);
+  
+  foreach ($plugin_definitions as $def) {
+    \Drupal::messenger()->addStatus('特定のプラグイン定義を取得：' . $def['id']);
+    //プラグインの構成済みインスタンスの作成
+    $plugin = $type->createInstance($def['id'], ['of' => 'configuration values']);
+    \Drupal::messenger()->addStatus($plugin->getOrder());
+  }
+
+
+
+  //エンティティの操作
+  $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+  $node = $nodeStorage->load(1);
+  //\Drupal::messenger()->addStatus('読みこんだノード：'. $node->id() .','.$node->getTitle());
+  //$newNode=$nodeStorage->create(['type'=>'article','title'=>'Entity APIで作成した記事'])->save();
+}

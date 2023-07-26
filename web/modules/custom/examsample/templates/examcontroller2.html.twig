@@ -1,0 +1,13 @@
+{# examsample/templates/examcontroller.html.twig #}
+
+
+<div class="test1">
+<p>{{'Hello everyone ! Nice to meet @you !' | t({'@you':'variable1'}) }}</p>
+<p>{{ 'Hello everyone ! Nice to meet @you !' | t({'@you':variable1|placeholder}) }}</p>
+<p>{{'Hello everyone ! Nice to meet %you !'| t({"%you":"everyone"}) }}</p>
+<a href="{{ ':url'|placeholder({':url': 'javascript:alert("XSS")'}) }}">{{ 'Click here' }}</a>
+
+</div>
+<div class="test2">
+{{ variable2|t({'@hogehoge':'collapse'}) }}
+</div>

@@ -1,0 +1,5 @@
+name: ExportDB
+type: module
+description: '定期的にDBを書き出す'
+package: ExportDB
+core_version_requirement: ^8 || ^9

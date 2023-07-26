@@ -1,0 +1,5 @@
+name: 試験対策用参考モジュール
+type: module
+description: '試験対策のためのモジュール。実使用してはいけない'
+package: Exam
+core_version_requirement: ^8 || ^9

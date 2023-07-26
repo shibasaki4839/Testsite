@@ -1,0 +1,18 @@
+{# examsample/templates/examcontroller.html.twig #}
+{% import "/modules/custom/examsample/templates/extends/exammacro.html.twig" as exammacro %}
+<p>{{exammacro.input("hogehoge"|t,"") }} </p>
+<div class="test1">
+<p>{{'Hello everyone ! Nice to meet @you !' | t({'@you':'variable1'}) }}</p>
+<p>{{ 'Hello everyone ! Nice to meet @you !' | t({'@you':variable1|default("you")|placeholder}) }}</p>
+<p>{{'Hello everyone ! Nice to meet %you !'| t({"%you":"everyone"}) }}</p>
+<a href="{{ ':url'|placeholder({':url': 'javascript:alert("XSS")'}) }}">{{ 'Click here' }}</a>
+{{ "foo #{variable1} baz" }}
+</div>
+<div class="test2">
+{% if variable2 %}
+{{ variable2|default("hogehoge")|t({'@hogehoge':'collapse'}) }}
+{% endif %}
+
+
+</div>
+

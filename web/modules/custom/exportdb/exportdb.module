@@ -1,0 +1,8 @@
+<?php
+/**
+ * Implements hook_cron();
+ */
+function exportdb_cron() {  
+  \Drupal::messenger()->addMessage(\Drupal::service('file_system')->realpath("private://"));
+  \Drupal::messenger()->addMessage("hogehoge");
+}
