@@ -1,0 +1,11 @@
+examsample.tab1:
+  route_name : examsample.form1
+  title: examsample
+  base_route: examsample.form1
+  weight: 10
+
+examsample.tab_2:
+  route_name: examsample.controller
+  title: Work
+  base_route: examsample.form1
+  weight: 20
