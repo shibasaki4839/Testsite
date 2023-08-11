@@ -32507,3 +32507,27 @@
 [891] [Step Debug] ERR: Could not connect to debugging client. Tried: 172.19.0.1:9003 (from HTTP_X_FORWARDED_FOR HTTP header), 172.24.204.124:9003 (fallback through xdebug.client_host/xdebug.client_port).
 [891] Log closed at 2023-07-25 10:34:17.790380
 
+[906] Log opened at 2023-07-26 12:05:53.398110
+[906] [Step Debug] INFO: Checking for client discovery headers: 'HTTP_X_FORWARDED_FOR,REMOTE_ADDR'.
+[906] [Step Debug] INFO: Checking header 'HTTP_X_FORWARDED_FOR'.
+[906] [Step Debug] INFO: Client host discovered through HTTP header, connecting to 172.19.0.1:9003.
+[906] [Step Debug] WARN: Creating socket for '172.19.0.1:9003', poll success, but error: Operation now in progress (29).
+[906] [Step Debug] WARN: Could not connect to client host discovered through HTTP headers, connecting to configured address/port: 172.24.204.124:9003.
+[906] [Step Debug] WARN: Creating socket for '172.24.204.124:9003', poll success, but error: Operation now in progress (29).
+[906] [Step Debug] ERR: Could not connect to debugging client. Tried: 172.19.0.1:9003 (from HTTP_X_FORWARDED_FOR HTTP header), 172.24.204.124:9003 (fallback through xdebug.client_host/xdebug.client_port).
+[906] [Step Debug] INFO: Checking for client discovery headers: 'HTTP_X_FORWARDED_FOR,REMOTE_ADDR'.
+[906] [Step Debug] INFO: Checking header 'HTTP_X_FORWARDED_FOR'.
+[906] [Step Debug] INFO: Client host discovered through HTTP header, connecting to 172.19.0.1:9003.
+[906] [Step Debug] WARN: Creating socket for '172.19.0.1:9003', poll success, but error: Operation now in progress (29).
+[906] [Step Debug] WARN: Could not connect to client host discovered through HTTP headers, connecting to configured address/port: 172.24.204.124:9003.
+[906] [Step Debug] WARN: Creating socket for '172.24.204.124:9003', poll success, but error: Operation now in progress (29).
+[906] [Step Debug] ERR: Could not connect to debugging client. Tried: 172.19.0.1:9003 (from HTTP_X_FORWARDED_FOR HTTP header), 172.24.204.124:9003 (fallback through xdebug.client_host/xdebug.client_port).
+[906] [Step Debug] INFO: Checking for client discovery headers: 'HTTP_X_FORWARDED_FOR,REMOTE_ADDR'.
+[906] [Step Debug] INFO: Checking header 'HTTP_X_FORWARDED_FOR'.
+[906] [Step Debug] INFO: Client host discovered through HTTP header, connecting to 172.19.0.1:9003.
+[906] [Step Debug] WARN: Creating socket for '172.19.0.1:9003', poll success, but error: Operation now in progress (29).
+[906] [Step Debug] WARN: Could not connect to client host discovered through HTTP headers, connecting to configured address/port: 172.24.204.124:9003.
+[906] [Step Debug] WARN: Creating socket for '172.24.204.124:9003', poll success, but error: Operation now in progress (29).
+[906] [Step Debug] ERR: Could not connect to debugging client. Tried: 172.19.0.1:9003 (from HTTP_X_FORWARDED_FOR HTTP header), 172.24.204.124:9003 (fallback through xdebug.client_host/xdebug.client_port).
+[906] Log closed at 2023-07-26 12:05:53.654609
+
