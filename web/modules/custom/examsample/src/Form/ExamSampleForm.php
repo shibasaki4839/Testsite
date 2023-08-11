@@ -28,6 +28,8 @@ class ExamSampleForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state){
     //dpm(\Drupal::getContainer()->get('csrf_token')->get("examsample/form1"));
     //$form['#theme'] = 'examsample_form';
+    //amendを使ってコミットを修正する
+    //修正内容をコミット
     $form['name'] =[
       '#type' => 'textfield',
       '#title' => $this->t('名前'),
