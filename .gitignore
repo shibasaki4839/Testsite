@@ -10,6 +10,7 @@ box/local.config.yml
 *.local
 local.blt.yml
 .env
+.gitignore
 private/*
 web/sites/default/services.yml
 web/sites/default/settings.php
