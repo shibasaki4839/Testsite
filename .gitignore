@@ -10,6 +10,9 @@ box/local.config.yml
 *.local
 local.blt.yml
 .env
+private/*
+web/sites/default/services.yml
+web/sites/default/settings.php
 # Ignore drupal core.
 web/core
 # Ignore paths that contain user-generated content.
